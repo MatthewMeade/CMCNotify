@@ -11,7 +11,7 @@ import time
 dir_name = os.path.abspath(os.path.dirname(__file__))
 
 def main():
-    print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"])
+    print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"] + "Pass: " + os.environ["CMC_PASSWORD"])
     fetched_names = fetch_names()
     stored_names = load_stored_names()
 
@@ -40,12 +40,15 @@ def fetch_names():
 
 def load_stored_names():
     file = open(dir_name + "/files/new.txt", "r")
-    return file.read().split("\n")
+    names = file.read().split("\n")
+    file.close()
+    return names
 
 
 def save_names(names):
     file = open(dir_name + "/files/new.txt", "w")
     file.write("\n".join(names))
+    file.close()
 
 
 def notify(names):
@@ -62,7 +65,7 @@ def notify(names):
     msg.attach(MIMEText(body, 'plain'))
 
     text = msg.as_string()
-    server.sendmail(os.environ["CMC_EMAIL"], os.environ["CMC_EMAIL"], text)
+    server.sendmail(os.environ["CMC_EMAIL"], os.environ["CMC_PASSWORD"], text)
     server.quit()
 
 
