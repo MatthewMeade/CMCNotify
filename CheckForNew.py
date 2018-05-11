@@ -6,9 +6,10 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import os
-
+import time
 
 def main():
+    print(time.time() + "\tEmail: " + os.environ["CMC_EMAIL"])
     fetched_names = fetch_names()
     stored_names = load_stored_names()
 
@@ -64,4 +65,7 @@ def notify(names):
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        print(e)
