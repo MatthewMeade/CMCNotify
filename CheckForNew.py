@@ -8,6 +8,8 @@ from email.mime.text import MIMEText
 import os
 import time
 
+dir_name = os.path.abspath(os.path.dirname(__file__))
+
 def main():
     print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"])
     fetched_names = fetch_names()
@@ -37,12 +39,12 @@ def fetch_names():
 
 
 def load_stored_names():
-    file = open("./files/new.txt", "r")
+    file = open(dir_name + "/files/new.txt", "r")
     return file.read().split("\n")
 
 
 def save_names(names):
-    file = open("./files/new.txt", "w")
+    file = open(dir_name + "/files/new.txt", "w")
     file.write("\n".join(names))
 
 
