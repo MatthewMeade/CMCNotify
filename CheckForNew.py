@@ -11,7 +11,7 @@ import time
 dir_name = os.path.abspath(os.path.dirname(__file__))
 
 def main():
-    print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"] + "Pass: " + os.environ["CMC_PASSWORD"])
+    print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"])
     fetched_names = fetch_names()
     stored_names = load_stored_names()
 
