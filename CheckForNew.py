@@ -65,7 +65,7 @@ def notify(names):
     msg.attach(MIMEText(body, 'plain'))
 
     text = msg.as_string()
-    server.sendmail(os.environ["CMC_EMAIL"], os.environ["CMC_PASSWORD"], text)
+    server.sendmail(os.environ["CMC_EMAIL"], os.environ["CMC_EMAIL"], text)
     server.quit()
 
 
