@@ -9,7 +9,7 @@ import os
 import time
 
 def main():
-    print(time.time() + "\tEmail: " + os.environ["CMC_EMAIL"])
+    print(time.time(), "\tEmail: " + os.environ["CMC_EMAIL"])
     fetched_names = fetch_names()
     stored_names = load_stored_names()
 
